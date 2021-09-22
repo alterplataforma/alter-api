@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SupportController;
 use App\Http\Controllers\Admin\VehicleController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ComidaController;
 use App\Http\Controllers\User\AddressController;
 use App\Http\Controllers\User\ForgotPasswordController;
 use App\Http\Controllers\User\NequiAccountController;
@@ -104,5 +106,12 @@ Route::group(['middleware' => 'jwt'], function () {
     // *****ALTER CONFIGURACION*******
     Route::prefix('configuration')->group(function(){
         Route::post('/alter',                   [AlterConfigurationController::class, 'get_row']);
+    });
+
+    // *****REGISTRO CATEGORÍAS*****
+    Route::prefix('categories')->group(function(){
+        Route::post('/register/food',           [CategoryController::class, 'register_food']);
+        Route::post('/register/liqueur',        [CategoryController::class, 'register_liqueur']);
+        Route::post('/register/market',         [CategoryController::class, 'register_market']);
     });
 });
