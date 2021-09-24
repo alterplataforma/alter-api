@@ -8,12 +8,14 @@ use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\Admin\TypeServiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ComidaController;
+use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\User\AddressController;
 use App\Http\Controllers\User\ForgotPasswordController;
 use App\Http\Controllers\User\NequiAccountController;
 use App\Http\Controllers\User\UserCashController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\UtilController;
+use App\Http\Resources\Place;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -114,5 +116,9 @@ Route::group(['middleware' => 'jwt'], function () {
         Route::post('/register/food',           [CategoryController::class, 'register_food']);
         Route::post('/register/liqueur',        [CategoryController::class, 'register_liqueur']);
         Route::post('/register/market',         [CategoryController::class, 'register_market']);
+    });
+
+    Route::prefix('places')->group(function () {
+        Route::post('',                         [PlaceController::class, 'show_all']);
     });
 });
