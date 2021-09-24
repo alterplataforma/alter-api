@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SupportController;
 use App\Http\Controllers\Admin\VehicleController;
+use App\Http\Controllers\Admin\TypeServiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ComidaController;
 use App\Http\Controllers\User\AddressController;
