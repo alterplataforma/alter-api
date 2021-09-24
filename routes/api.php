@@ -118,7 +118,6 @@ Route::group(['middleware' => 'jwt'], function () {
         Route::post('/register/market',         [CategoryController::class, 'register_market']);
     });
 
-    Route::prefix('places')->group(function () {
-        Route::post('',                         [PlaceController::class, 'show_all']);
-    });
+    // *****VER NEGOCIOS*****
+    Route::post('/places',                  [PlaceController::class, 'show_all']);
 });
