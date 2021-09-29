@@ -6,9 +6,8 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SupportController;
 use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\Admin\TypeServiceController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ComidaController;
-use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\Service\CategoryController;
+use App\Http\Controllers\Service\PlaceController;
 use App\Http\Controllers\User\AddressController;
 use App\Http\Controllers\User\ForgotPasswordController;
 use App\Http\Controllers\User\NequiAccountController;
@@ -118,6 +117,9 @@ Route::group(['middleware' => 'jwt'], function () {
         Route::post('/register/market',         [CategoryController::class, 'register_market']);
     });
 
-    // *****VER NEGOCIOS*****
-    Route::post('/places',                  [PlaceController::class, 'show_all']);
+    // *****VER Y REGISTRAR NEGOCIOS*****
+    Route::prefix('places')->group(function () {
+        Route::post('show',                     [PlaceController::class, 'show_all']);
+        Route::post('register',                 [PlaceController::class, 'register']);
+    });
 });

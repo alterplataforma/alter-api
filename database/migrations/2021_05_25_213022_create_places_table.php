@@ -29,13 +29,13 @@ class CreatePlacesTable extends Migration
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->string('status')->default('1');
-            $table->string('approved')->nullable();
+            $table->string('approved')->default('0');
             $table->string('address')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->string('headquarter')->nullable()->comment('0 = Sede 1 = Sede Principal');
-            $table->string('register_type')->nullable()->comment('1 = App 2 = Scraping');
-            $table->string('product_charge')->nullable()->comment('por cobro producto');
+            $table->string('register_type')->default('1')->comment('1 = App 2 = Scraping');
+            $table->string('product_charge')->default('1')->comment('cobro por producto');
             $table->string('proprietor_name')->nullable()->comment('nombre de propietario');
             $table->timestamps();
         });
