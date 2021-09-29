@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Service;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class MarketCategory extends Model
+class LiqueurCategory extends Model
 {
     static $rules = [
         'category'  => 'required|string',

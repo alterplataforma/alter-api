@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Service;
 
 use Illuminate\Http\Request;
-use App\Models\FoodCategory;
-use App\Models\LiqueurCategory;
-use App\Models\MarketCategory;
+use App\Http\Controllers\Controller;
+use App\Models\Service\FoodCategory;
+use App\Models\Service\LiqueurCategory;
+use App\Models\Service\MarketCategory;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
