@@ -121,5 +121,7 @@ Route::group(['middleware' => 'jwt'], function () {
     Route::prefix('places')->group(function () {
         Route::post('show',                     [PlaceController::class, 'show_all']);
         Route::post('register',                 [PlaceController::class, 'register']);
+        Route::post('update/{id}',               [PlaceController::class, 'update']);
+        Route::get('delete/{id}',               [PlaceController::class, 'delete']);
     });
 });

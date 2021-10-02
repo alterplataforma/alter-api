@@ -115,4 +115,49 @@ class PlaceController extends Controller
             return $e->getMessage();
         }    
     }
+
+    public function update(Request $request, $id) {
+
+        try {
+
+            $request->validate(Place::$rules);
+
+            if ($place = Place::find($id)) {
+
+                if ($place->id_user == Auth::id()) {
+                    
+                    $place->update($request->all());
+                    return 'Se ha actualizado la información del negocio';
+
+                } else {
+                    return 'Este negocio no es tuyo';
+                }
+            } else {
+                return 'Este negocio no está registrado';
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
+    }
+
+    public function delete($id) {
+        try {
+            if ($place = Place::find($id)) {
+
+                if ($place->id_user == Auth::id()) {
+
+                    $place->delete();
+                    return 'Ha eliminado este negocio satisfactoriamente';
+
+                } else {
+                    return 'Este negocio no es tuyo';
+                }
+            } else {
+                return 'Este negocio no está registrado';
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

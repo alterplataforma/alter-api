@@ -18,7 +18,6 @@ class Place extends Model
     static $rules = [
         'id_place_type' => 'required|integer',
         'id_city' => 'required|integer',
-        'id_user' => 'required|integer',
         'name' => 'required|string',
         'description' => 'required|string',
         'image' => 'mimes:jpg,jpeg,png|max:10000',
