@@ -74,9 +74,12 @@ class PlaceController extends Controller
                 //Se toma el nombre del archivo y se guarda la imagen
                 $img_name = $request->image->getClientOriginalName();
                 $request->image->move('img', $img_name);
-                
+
                 //Siempre guardará el primer lugar como sede principal
-                Place::create($request->except('image') + ['headquarter' => Place::SEDE_PRINCIPAL,'image' => $img_name]);
+                Place::create($request->except('image') + 
+                                ['id_user' => Auth::id(),
+                                'headquarter' => Place::SEDE_PRINCIPAL,
+                                'image' => $img_name]);
 
                 if ($n_sedes == 1) {
                     return 'Se ha registrado su negocio satisfactoriamente';
@@ -92,7 +95,7 @@ class PlaceController extends Controller
                         DB::table('places')->insert([
                             'id_place_type' => $request->id_place_type,
                             'id_city' => $request->id_city,
-                            'id_user' => $request->id_user,
+                            'id_user' => Auth::id(),
                             'name' => $request->name,
                             'description' => $request->description,
                             'image' => $img_name,

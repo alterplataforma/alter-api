@@ -20,7 +20,7 @@ class Place extends Model
         'id_city' => 'required|integer',
         'name' => 'required|string',
         'description' => 'required|string',
-        'image' => 'mimes:jpg,jpeg,png|max:10000',
+        'image' => 'required|mimes:jpg,jpeg,png|max:10000',
         'address' => 'required|string',
         'address_2' => 'string',
         'longitude' => 'required|numeric',
